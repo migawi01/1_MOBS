@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>MOBS | Projekt</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <meta name="description" content="MOBS|Projekt" />
+    <meta name="author" content="Michelle Gaugel, 760930" />
+
+    <style>
+        :root {
+            --primary-color: greenyellow; /* Default primary color */
+            --hover-color: rgba(172, 255, 47, 0.3); /* Default hover color */
+        }
+    </style>
+</head>
+
+<body>
+  <script src="events.js"></script>
+
+  <!--Home-Ansicht--> 
+  <div id="homebildschirm" class="view active">
+    <div class="Hintergrund">MOBS <br> Machie Tools </br> </div>
+    <div class="container">
+      <div class="hButton">
+        <button class="Home">
+          <span class="material-icons material-icons-outlined">home</span>
+        </button>
+      </div> 
+      <div class="fButtons">
+        <button class="Wartung">
+          <span class="material-icons material-icons-outlined">build</span>
+        </button>
+        <button class="Werte">
+          <span class="material-icons material-icons-outlined">trending_up</span>
+        </button>
+        <button class="Liste">
+          <span class="material-icons material-icons-outlined">list</span>
+        </button>
+        <button class="Einstellungen">
+          <span class="material-icons material-icons-outlined">settings</span>
+        </button>
+        <button class="Wasser">
+          <span class="material-icons material-icons-outlined">shower</span>
+        </button>
+        <button class="Headset">
+          <span class="material-icons material-icons-outlined">headset_mic</span>
+        </button>
+        <button class="Hilfe">
+          <span class="material-icons material-icons-outlined">help</span>
+        </button>
+        <button class="Sicherheit">
+          <span class="material-icons material-icons-outlined">lock</span>
+        </button>
+        <button class="I/O">
+          <span class="material-icons material-icons-outlined">power_settings_new</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--Farbschema Auswahl-->
+  <div id="farbauswahl" class="view" style="display: none;" >    
+    <div class="Hintergrund">MOBS <br> Machie Tools </br> </div>
+    <div class="container">
+      <div class="hButton">
+        <button class="Home">
+          <span class="material-icons material-icons-outlined">home</span>
+        </button>
+      </div> 
+      <div class="rechts">
+        <div class="headline">
+          <h1 id="überschrift">Bitte wählen Sie ein Farbschema.</h1>
+        </div>
+        <div class="farbButtons">
+          <button class="farbe" style="background-color: rgba(30, 143, 255, 0.3); border-color: dodgerblue" data-color="rgba(30, 143, 255, 0.7)"></button>
+          <button class="farbe" style="background-color: rgba(210, 105, 30, 0.3); border-color: chocolate" data-color="rgba(210, 105, 30, 0.7)"></button>
+          <button class="farbe" style="background-color: rgba(0, 250, 154, 0.3); border-color: mediumspringgreen" data-color="rgba(0, 250, 154, 0.7)"></button>
+          <button class="farbe" style="background-color: rgba(172, 255, 47, 0.3); border-color: greenyellow" data-color="rgba(172, 255, 47, 0.7)"></button>
+          <button class="farbe" style="background-color: rgba(255, 255, 0, 0.3); border-color: yellow" data-color="rgba(255, 255, 0, 0.7)"></button>
+          <button class="farbe" style="background-color: rgba(255, 0, 255, 0.3); border-color: fuchsia" data-color="rgba(255, 0, 255, 0.7)"></button>
+        </div>  
+      </div> 
+    </div>  
+  </div>
+</body>
+
+</html>

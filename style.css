@@ -1,0 +1,181 @@
+* /*allgemein*/ {
+    margin: 0;
+    padding: 0;
+}
+
+/*Icons */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+/*Icons Format */
+.material-icons {
+    font-size: calc(0.7 * min(10vw, 10vh));
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+/* Seiteneinstellungen */
+body {
+    background: rgb(8, 8, 8);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Hintergrund {
+    position: absolute;
+    margin-left: 10%;
+    top: 32%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13vw;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.15;
+    filter: blur(6px);
+    z-index: 0;
+    color: var(--primary-color);
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    overflow: hidden;
+    justify-content: flex-start;
+    position: relative;
+}
+
+/*Seite links*/
+.hButton {
+    display: grid;
+    flex: 0 0 8%;
+    align-items: center;
+    justify-items: center;
+}
+
+.hButton .material-icons {
+    font-size: calc(0.5 * 60px);
+    color: var(--primary-color);
+}
+
+/*rechte Seite*/
+.fButtons {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    padding: 20px;
+    width: calc(100% - 16px);
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.fButtons .material-icons {
+    font-size: 90px;
+    color: var(--primary-color);
+}
+
+/*Buttons*/
+button {
+    display: flex;
+    background: none;
+    border-radius: 10px;
+    padding: 25px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.fButtons button {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hButton button {
+    width: 10%;
+    height: 10%;
+    z-index: 1;
+}
+
+.container button:hover {
+    background-color: var(--hover-color);
+}
+
+/*Farbauswahl*/
+.farbButtons {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 30px;
+    padding: 20px;
+    width: calc(90vw - 20px);
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.headline {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.headline h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--primary-color);
+}
+
+.headline h1,
+.hButton .material-icons,
+.hButton .Home {
+    opacity: 1 !important;
+    transition: none;
+}
+
+.farbe {
+    transition: background-color 0.3s;
+}
+
+.farbe.transparenz {
+    opacity: 0.6;
+}
+
+.farbButtons button:hover {
+    border-color: var(--hover-color);
+}
