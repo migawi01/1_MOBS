@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>MOBS | Projekt</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="MOBS|Projekt" />
+    <meta name="author" content="Michelle Gaugel, 760930" />
+    <script src="main-menu.js" defer></script>
+    <script src="machine-data.js" defer></script>
+    <script src="tool-position.js" defer></script>
+    <script src="support.js" defer></script>
+    <script src="color-selection.js" defer></script>
+    <script src="events.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+  
+    <!--Sidebar/linke Seite-->
+    <div class="homenavigation">
+      <button class="Home">
+        <span class="material-icons">home</span>
+      </button>
+    </div>
+
+    <!--Home-Ansicht--> 
+    <div id="homebildschirm" class="view active"> 
+      <div class="Hintergrund">MOBS <br> Machie Tools </br> </div>
+      <main-menu></main-menu>
+    </div>
+
+    <!--Farbschema Auswahl-->
+    <div id="farbauswahl" class="view" style="display: none;"> 
+      <div class="Hintergrund">MOBS <br> Machie Tools </br> </div>   
+      <div class="headline">
+        <h1 id="überschrift">Bitte wählen Sie ein Farbschema.</h1>
+      </div>
+      <color-selection></color-selection>
+    </div> 
+
+    <!--Maschinendaten-->
+    <div id="maschinendaten" class="view" style="display: none;"> 
+      <div class="Hintergrund">MOBS <br> Machie Tools </br> </div>   
+      <div class="headline">
+        <h1 id="überschrift">Maschinendaten</h1>
+      </div>
+      <machine-data></machine-data>
+    </div> 
+  
+    <!--Werkzeugpostition-->
+    <div id="werkzeugposition" class="view" style="display: none;"> 
+      <div class="Hintergrund">MOBS <br> Machie Tools </br> </div>   
+      <div class="headline">
+        <h1 id="überschrift">Werkzeugposition</h1>
+      </div>
+      <tool-position></tool-position>
+    </div> 
+
+    <!--Support-->
+    <div id="support" class="view" style="display: none;">  
+      <div class="Hintergrund">MOBS <br> Machie Tools </br> </div>   
+      <support-view></support-view>
+    </div> 
+  </div> 
+</body>
+
+</html>
