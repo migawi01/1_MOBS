@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>MOBS | Projekt</title>
+    <meta name="description" content="MOBS|Projekt" />
+    <meta name="author" content="Michelle Gaugel, 760930" />
+    <script src="event_wc.js"></script> 
+</head>
+
+<body>
+    <webseite-component></webseite-component>
+    <template id="webseite-template">
+        <style>
+            :host {
+                display: flex;
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+                background-color: rgb(8, 8, 8);
+            }
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Material Icons'),
+                local('MaterialIcons-Regular'),
+                url('./Icons/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf') format('woff2');
+            }
+
+            .material-icons {
+                font-size: calc(0.7 * min(10vw, 10vh));
+                font-family: 'Material Icons';
+            }
+
+            .homenavigation {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 10%;
+                padding: 2%;
+                overflow: hidden;
+            }
+
+            .homenavigation button {
+                width: calc(5.5vw);
+                max-width: 10vw;
+                height: calc(5vw);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10%;
+                border: solid var(--activeColor) calc(0.2vw);
+                color: var(--activeColor);
+                background: none;
+            }
+
+            .homenavigation .material-icons {
+                font-size: calc(3vw);
+                color: var(--activeColor);
+                font-family: 'MaterialSymbolsOutlined';
+            }
+
+            .homenavigation button:hover {
+                background-color: var(--hoverColor);
+            }
+
+            .homenavigation button:active {
+                background-color: var(--activeColor);
+                border-width: 3px;
+            }
+
+            .rechteSeite {
+                flex: 1;
+            }
+        </style>
+
+        <div class="homenavigation">
+            <button class="Home">
+                <span class="material-icons">home</span>
+            </button>
+        </div>
+
+        <div class="rechteSeite">
+            <homebildschirm-component></homebildschirm-component>
+        </div>
+
+    </template>
+
+    <homebildschirm-component></homebildschirm-component>
+    <template id="homebildschirm-template">
+        <style>
+            .fButtons {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 30px;
+                width: calc(87vw);
+                justify-content: center;
+                align-items: center;
+                min-height: 300px;
+                padding: 2%;
+                height: 100vh;
+            }
+
+            .fButtons div {
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                border: solid var(--activeColor) calc(0.2vw);
+                color: var(--activeColor);
+                border-radius: 10px;
+                border-width: 1px;
+                background: none;
+                box-sizing: border-box;
+            }
+
+            .fButtons .material-icons {
+                font-size: calc(10vw);
+                color: var(--activeColor);
+                font-family: 'MaterialSymbolsOutlined';
+            }
+
+            .fButtons div:hover {
+                background-color: var(--hoverColor);
+            }
+
+            .fButtons div:active {
+                background-color: var(--activeColor);
+                border-width: 3px;
+            }
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Material Icons'),
+                local('MaterialIcons-Regular'),
+                url('./Icons/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf') format('woff2');
+            }
+
+            .material-icons {
+                font-size: calc(0.7 * min(10vw, 10vh));
+                font-family: 'Material Icons';
+            }
+        </style>
+        <div class="fButtons">
+            <div class="button" id="wartung">
+                <span class="material-icons">build</span>
+            </div>
+            <div class="button" id="maschinendaten">
+                <span class="material-icons">trending_up</span>
+            </div>
+            <div class="button" id="liste">
+                <span class="material-icons">list</span>
+            </div>
+            <div class="button" id="einstellungen">
+                <span class="material-icons">settings</span>
+            </div>
+            <div class="button" id="wasser">
+                <span class="material-icons material-icons-outlined">shower</span>
+            </div>
+            <div class="button" id="headset">
+                <span class="material-icons material-icons-outlined">headset_mic</span>
+            </div>
+            <div class="button" id="hilfe">
+                <span class="material-icons material-icons-outlined">help</span>
+            </div>
+            <div class="button" id="sicherheit">
+                <span class="material-icons material-icons-outlined">lock</span>
+            </div>
+            <div class="button" id="i/o">
+                <span class="material-icons material-icons-outlined">power_settings_new</span>
+            </div>
+        </div>
+    </template>
+
+    <hintergrund-component></hintergrund-component>
+    <template id="hintergrund-template">
+        <style>
+            :host {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                height: 100vh;
+                z-index: 0;
+                opacity: 0.2;
+                font-size: 26vmin;
+                font-weight: bold;
+                color: var(--theme-color);
+                text-align: center;
+                white-space: nowrap;
+                line-height: 1.5;
+                filter: blur(5px);
+                pointer-events: none;
+            }
+        </style>
+
+        <div>
+            MOBS <br> Machine Tools
+        </div>
+    </template>
+
+    <farbauswahl-component></farbauswahl-component>  
+    <template id="farbauswahl-template">
+        <style>
+            :host {
+                display: grid;
+                width: 100%;
+                height: 100%;
+            }
+            .farbButtons {
+                width: calc(87vw);
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-gap: 3vw;
+                padding: 3%;
+                align-self: end;
+            }   
+
+            .farbButtons .farbe {
+                display: flex;
+                height: 80vh;
+                min-height: 400px;
+                border-radius: 10px;
+                z-index: 2;
+                overflow: hidden;
+                border: 2px solid var(--activeColor, #000);
+                background-color: rgba(var(--activeColor, 0, 0, 0), 0.4);
+            }   
+
+            .headline {
+                position: relative;
+                margin-top: 30px;
+                z-index: 1; 
+                min-height: 50px;
+                color: var(--activeColor);
+                text-align: center;
+                justify-content: center;
+            }
+
+            .headline h1 {
+                font-size: 2.5vw;
+                margin: 0;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            .farbButtons:hover {
+                background-color: rgba(var(--activeColor), 0.6);
+            }
+        </style>
+
+        <div class="headline">
+            <h1 id="überschrift">Bitte wählen Sie ein Farbschema.</h1>
+        </div>
+        <div class="farbButtons">
+            <div class="farbe"></div>
+            <div class="farbe"></div> 
+            <div class="farbe"></div>
+            <div class="farbe"></div> 
+            <div class="farbe"></div>
+            <div class="farbe"></div> 
+        </div>
+    </template>
+
+    <maschinendaten-component></maschinendaten-component> 
+    <template id="maschinendaten-template">
+        <style>
+            .maschinendatenName {
+                float: left;
+                display: grid;
+                grid-gap: 20px;
+                width: calc(30vw);
+                height: 80vh;
+                padding: 5px;
+                overflow: hidden;
+            }
+
+            .maschinendatenWert {
+                float: right;
+                display: grid;
+                grid-gap: 20px;
+                width: calc(55vw);
+                height: 80vh;
+                padding: 5px;
+                overflow: hidden;
+            }
+
+            .maschinendatenName div {
+                text-align: left;
+                z-index: 1;
+                border: solid var(--activeColor) calc(0.2vw);
+                color: var(--activeColor);
+                border-radius: 10px 0% 0% 10px;
+                background: none;
+                padding: 5%;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            .maschinendatenWert div {
+                text-align: left;
+                align-content: center;
+                z-index: 1;
+                border: solid var(--activeColor) calc(0.2vw);
+                color: var(--activeColor);
+                font-size: calc(5vw);
+                border-radius: 0% 10px 10px 0%;
+                background: none;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                padding: 5%;
+            }
+
+            #maschinendaten .headline {
+                position: relative;
+                margin-top: 30px;
+                z-index: 1; 
+                height: 8vh;
+                color: var(--activeColor);
+                text-align: center;
+                justify-content: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+        <div class="headline">
+            <h1 id="überschrift">Maschinendaten</h1>
+        </div>
+        <div class="maschinendatenName">
+            <div class="Name">Temperatur:</div>
+            <div class="Name">Luftdruck:</div>
+            <div class="Name">Luftfeuchtigkeit:</div>
+        </div>
+        <div class="maschinendatenWert">
+            <div class="data-box" id="temperatur">-- °C</div>
+            <div class="data-box" id="luftdruck">-- hPa</div>
+            <div class="data-box" id="luftfeuchtigkeit">-- %</div>
+        </div>  
+    </template>
+
+    <werkzeugposition-component></werkzeugposition-component> 
+    <template id="werkzeugposition-template">
+        <style>
+            #werkzeugposition {
+                align-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .kompass {
+                align-items: center;
+                justify-content: center;
+                display: grid;
+                grid-gap: 20px;
+                width: calc(25vw);
+                height: calc(50vh);
+                padding: 2%;
+                border: solid var(--activeColor) calc(0.2vw);
+                border-radius: 10px;
+                z-index: 2;
+                margin-bottom: 60px;
+                transform: rotate(var(--activeAngle));
+            }
+
+            .lagewinkel {
+                height: calc(10vh);
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 30px;
+                width: calc(90vw);
+                padding: 2%;
+                justify-content: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            .kompass div {
+                text-align: left;
+                display: flex;
+                z-index: 1;
+                border: solid var(--activeColor) calc(0.2vw);
+                color: var(--activeColor);
+                border-radius: 10px;
+                background: none;
+                align-items: center;
+            }
+
+            .kompass .material-icons {
+                font-size: calc(17vw);
+                color: var(--activeColor);
+                font-family: 'MaterialSymbolsOutlined';
+            }
+
+            .lagewinkel .kasten .name {
+                float: left;
+                border: none;
+            }  
+            
+            .lagewinkel .kasten .data-box1 {
+                float: right;
+                border: none;
+                font-size: 3vw;
+            }  
+
+            .lagewinkel .kasten {
+                height: 10vh;
+                padding: 2%;
+                z-index: 1;
+                border: solid var(--activeColor) calc(0.2vw);
+                color: var(--activeColor);
+                border-radius: 10px;
+                background: none;
+                z-index: 2;
+            }
+
+            #werkzeugposition .headline {
+                position: relative;
+                margin-top: 30px;
+                margin-bottom: 80px;
+                z-index: 1; 
+                color: var(--activeColor);
+                text-align: center;
+                justify-content: center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                z-index: 2;
+            }        
+
+            @font-face {
+                font-family: 'Material Icons';
+                font-style: normal;
+                font-weight: normal;
+                src: local('Material Icons'),
+                local('MaterialIcons-Regular'),
+                url('./Icons/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf') format('woff2');
+            }
+
+            .material-icons {
+                font-size: calc(0.7 * min(10vw, 10vh));
+                font-family: 'Material Icons';
+            }
+        </style>
+        <div class="headline">
+            <h1 id="überschrift">Werkzeugposition</h1>
+        </div>
+        <div class="kompass">
+            <span class="material-icons">arrow_upward</span>
+        </div>
+        <div class="lagewinkel">
+            <div class="kasten"> 
+                <div class="name">yaw:</div>
+                <div class="data-box1" id="yaw">--.--</div>
+            </div>
+            <div class="kasten">
+                <div class="name">pitch:</div>
+                <div class="data-box1" id="pitch">--.--</div>
+            </div>
+            <div class="kasten">
+                <div class="name">roll:</div>
+                <div class="data-box1" id="roll">--.--</div>
+            </div>
+        </div>  
+    </template>
+
+    <support-component></support-component>
+    <template id="support-template">
+        <style>
+            #support {
+                display: grid;
+                z-index: 2;
+                align-items: center;
+                text-align: center;
+            }
+
+            #support .textfeld {
+                padding-top: 25px;
+                width: 50vw;
+                height: 17vh;
+                border: solid var(--activeColor) calc(0.2vw);
+                color: var(--activeColor);
+                border-radius: 10px;
+                background: none;
+                font-size: calc(5vw);
+                position: absolute;
+                top: 50%;
+                left: 53%;
+                transform: translate(-50%, -50%);
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+        </style>
+        <div class="textfeld">Rufe Support ...</div>
+    </template>
+
+    <script>
+        class Homebildschirm extends HTMLElement {
+            constructor() {
+                super();
+
+                const templateContent = document
+                    .getElementById('homebildschirm-template')
+                    .content
+                    .cloneNode(true);
+
+                this.attachShadow({ mode: 'open' })
+                    .appendChild(templateContent);
+
+                this.homeBildschirm = document.createElement('homebildschirm');
+                this.homeBildschirm.addEventListener('action', (event) => {
+                    const { action } = event.detail;
+                    this.ladenRechteSeite(this.shadowRoot.querySelector('.rechteSeite'), action);
+                });
+
+                const homeButton = this.shadowRoot.querySelector('.Home');
+                homeButton.addEventListener('click', () => {
+                    const rechteSeite = this.shadowRoot.querySelector('.rechteSeite');
+                    rechteSeite.innerHTML = ''; 
+                    rechteSeite.appendChild(this.homeBildschirm);
+                });  
+            }
+
+            connectedCallback() {
+                console.log("Homeseite wurde verbunden.");
+                
+                const rechteSeite = this.shadowRoot.querySelector('.rechteSeite');
+                
+                rechteSeite.innerHTML = '';
+                rechteSeite.appendChild(this.homeBildschirm);
+            }
+
+            ladenRechteSeite(panel, action) {
+                const validActions = ['build', 'monitoring', 'support_agent', 'settings'];
+                
+                if (validActions.includes(action)) {
+                    panel.innerHTML = '';
+
+                    switch (action) {
+                        case 'build':
+                            const werkzeugpositionFunktion = document.createElement('werkzeugposition-component');
+                            panel.appendChild(werkzeugpositionFunktion);
+                            break;
+                        case 'monitoring':
+                            const maschinendatenFunktion = document.createElement('maschinendaten-component');
+                            panel.appendChild(maschinendatenFunktion);
+                            break;
+                        case 'support_agent':
+                            const supportFunktion = document.createElement('support-component');
+                            panel.appendChild(supportFunktion);
+                            break;
+                        case 'settings':
+                            const farbauswahlFunktion = document.createElement('farbauswahl-component');
+                            panel.appendChild(farbauswahlFunktion);
+                            break;
+                    }
+                }
+            }
+        }
+        customElements.define('webseite-component', Homebildschirm);
+
+        class homeBildschirm extends HTMLElement {
+            constructor() {
+                super();
+
+                const templateContent = document
+                    .getElementById('homebildschirm-template')
+                    .content
+                    .cloneNode(true);
+
+                this.attachShadow({ mode: 'open' })
+                    .appendChild(templateContent);
+
+                this.listenersAdded = false;
+            }
+
+            connectedCallback() {
+                if (this.listenersAdded) return;
+                
+                const buttons = this.shadowRoot.querySelectorAll('.button');
+
+                buttons.forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const actionId = button.id;
+                        this.dispatchEvent(new CustomEvent('action', {
+                            detail: { action: actionId },
+                            bubbles: true,
+                            composed: true
+                        }));
+                    });
+                });
+
+                this.listenersAdded = true;
+            }
+        }
+
+        customElements.define('homebildschirm-component', homeBildschirm);
+
+        class hintergrundFunktion extends HTMLElement {
+            constructor() {
+                super();
+
+                const templateContent = document
+                    .getElementById('hintergrund-template')
+                    .content
+                    .cloneNode(true);
+
+                this.attachShadow({ mode: 'open' })
+                    .appendChild(templateContent);
+            }
+        }
+        customElements.define('hintergrund-component', hintergrundFunktion);
+
+        class farbauswahlFunktion extends HTMLElement {
+            constructor() {
+                super();
+
+                const templateContent = document
+                    .getElementById('farbauswahl-template')
+                    .content
+                    .cloneNode(true);
+
+                this.attachShadow({ mode: 'open' })
+                    .appendChild(templateContent);
+
+                this.colors = [
+                    '0, 0, 255',
+                    '255, 165, 0',
+                    '80, 255, 200',
+                    '0, 255, 0',
+                    '255, 255, 0',
+                    '220, 0, 220'
+                ];
+            }
+
+            connectedCallback() {
+                const farbe = this.shadowRoot.querySelectorAll('.farbe');
+
+                farbe.forEach((button, index) => {
+                    const color = this.colors[index];
+                    button.style.setProperty('--activeColor', `rgb(${color})`);
+                    button.style.setProperty('--activeColor', color);
+
+                    button.addEventListener('click', () => {
+                        document.documentElement.style.setProperty('--theme-color', color);
+                    });
+                });
+            }
+        }
+        customElements.define('farbauswahl-component', farbauswahlFunktion);
+
+        class maschinendatenFunktion extends HTMLElement {
+            constructor() {
+                super();
+
+                const templateContent = document
+                    .getElementById('maschinendaten-template')
+                    .content
+                    .cloneNode(true);
+
+                this.attachShadow({ mode: 'open' })
+                    .appendChild(templateContent);
+
+                this.intervalId = null;
+            }
+
+            connectedCallback() {
+                this.getSensehatData();
+            }
+
+            disconnectedCallback() {
+                this.stopSensehatData();
+            }
+
+            getSensehatData() {
+                this.datenabruf();
+
+                this.intervalId = setInterval(() => {
+                    this.datenabruf();
+                }, 1000);
+            }
+
+            stopSensehatData() {
+                if (this.intervalId) {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            }
+
+            async datenabruf() {
+                try {
+                    const response = await fetch('http://192.168.178.58:8088/maschinendaten');
+                    if (!response.ok) {
+                        throw new Error('Netzwerkantwort war nicht ok.');
+                    }
+                    const data = await response.json();
+                    this.updateValues(data);
+                } catch (error) {
+                    console.error('Fehler beim Abrufen der Maschinendaten:', error);
+                }
+            }
+
+            updateValues(data) {
+                const shadowRoot = this.shadowRoot;
+                const box = shadowRoot.querySelectorAll('.data-box');
+
+                if (box.length >= 3) {
+                    box[0].textContent = data.temperature.toFixed(2) + ' °C';
+                    box[1].textContent = data.pressure.toFixed(2) + ' mbar';
+                    box[2].textContent = data.humidity.toFixed(2) + ' %';
+                } 
+            }
+        }
+        customElements.define('maschinendaten-component', maschinendatenFunktion);
+
+        class werkzeugpositionFunktion extends HTMLElement {
+            constructor() {
+                super();
+
+                const templateContent = document
+                    .getElementById('werkzeugposition-template')
+                    .content
+                    .cloneNode(true);
+
+                this.attachShadow({ mode: 'open' })
+                    .appendChild(templateContent);
+
+                this.intervalId = null;
+            }
+
+            connectedCallback() {
+                this.getSensehatData();
+            }
+
+            getSensehatData() {
+                this.datenabruf();
+                
+                this.intervalId = setInterval(() => {
+                    this.datenabruf();
+                }, 1000);
+            }
+
+            stopSensehatData() {
+                if (this.intervalId) {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            }
+
+            async datenabruf() {
+                try {
+                    const response = await fetch('http://192.168.178.58:8088/maschinendaten');
+                    if (!response.ok) {
+                        throw new Error('Netzwerkantwort war nicht ok.');
+                    }
+                    const data = await response.json();
+                    this.updateValues(data);
+                    this.updateRotation(data);
+                } catch (error) {
+                    console.error('Fehler beim Abrufen der Maschinendaten:', error);
+                }
+            }
+
+            updateValues(data) {
+                const box = this.shadowRoot.querySelectorAll('.data-box1');
+
+                if (box.length >= 3) {
+                    box[0].textContent = data.orientation.yaw.toFixed(2);
+                    box[1].textContent = data.orientation.pitch.toFixed(2);
+                    box[2].textContent = data.orientation.roll.toFixed(2);
+                } 
+            }
+
+            updateRotation(winkel) {
+                const kompass = this.shadowRoot.querySelector('.kompass');
+                kompass.style.transform = `rotate(${winkel.orientation.yaw.toFixed(2)}deg)`;
+            }
+
+            disconnectedCallback() {
+                this.stopSensehatData();
+            }
+        }
+
+        customElements.define('werkzeugposition-component', werkzeugpositionFunktion);
+
+        class supportFunktion extends HTMLElement {
+            constructor() {
+                super();
+
+                const templateContent = document
+                    .getElementById('support-template')
+                    .content
+                    .cloneNode(true);
+
+                this.attachShadow({ mode: 'open' })
+                    .appendChild(templateContent);
+
+                this.support = false;
+            }
+
+            connectedCallback() {        
+                console.log("SupportMenu wurde verbunden.");
+                if (this.support) return;
+                this.getSupport();
+            }
+
+            disconnectedCallback() {
+                this.support = false;
+            }
+
+            async getSupport() {
+                this.support = true;
+
+                try {
+                    const response = await fetch('http://192.168.178.58:8088/support');
+                    if (!response.ok) {
+                        throw new Error('Netzwerkantwort war nicht ok.');
+                    }
+                    const data = await response.text();
+                } catch (error) {
+                    console.error('Fehler beim Abrufen der Daten:', error);
+                }  
+            }
+        }
+
+        customElements.define('support-component', supportFunktion);
+    </script>
+</body>
+</html>
