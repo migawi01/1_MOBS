@@ -191,9 +191,11 @@ class IconButton extends HTMLElement {
     }
 
     maschinenmenu() {
-        let maschine = document.createElement("maschinendaten-container");
-        document.body.appendChild(maschine);
-        document.body.querySelector('homebildschirm-container').remove();
+        if (!document.querySelector('maschinendaten-container')) {
+            let maschine = document.createElement("maschinendaten-container");
+            document.body.appendChild(maschine);
+            document.body.querySelector('homebildschirm-container').remove();
+        }
     }
 
     werkzeugmenu() {
