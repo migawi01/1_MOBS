@@ -1,4 +1,4 @@
-import { Application, Router, Context } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router, Context, send } from "https://deno.land/x/oak@v12.6.1/mod.ts";
 
 // Initialize application and router
 const app = new Application();
@@ -120,6 +120,25 @@ router.post('/farbe', async (ctx: Context) => {
       error: error.message
     };
   }
+});
+
+app.use(async (ctx, next) => {
+  try {
+    await ctx.send({
+      root: `${Deno.cwd()}`,
+      index: "wc_MOBS.html",
+    });
+  } catch {
+    await next();
+  }
+});
+
+// Add root route
+router.get("/", async (ctx) => {
+  await ctx.send({
+    root: `${Deno.cwd()}`,
+    index: "wc_MOBS.html"
+  });
 });
 
 // Apply router middleware
