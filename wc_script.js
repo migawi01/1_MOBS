@@ -356,9 +356,14 @@ class ColorContainer extends HTMLElement {
         let farbe = f;
         document.documentElement.style.setProperty("--farbe", farbe);
         fetch('/farbe', {
-            method: "POST",
-            body: JSON.stringify(farbe)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ color: farbe })
         })
+        .then(response => response.json())
+        .catch(error => console.error('Error:', error));
     }
 }
 customElements.define('mycolor-container', ColorContainer);

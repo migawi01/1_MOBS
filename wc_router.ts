@@ -40,11 +40,13 @@ router.post('/display_support', async (ctx) => {
 // Color endpoint
 router.post('/farbe', async (ctx) => {
   try {
-    const body = await ctx.request.body().value;
-    ctx.response.body = { status: "success", data: body };
+    const bodyReader = ctx.request.body({ type: 'json' });
+    const value = await bodyReader.value;
+    ctx.response.headers.set('Content-Type', 'application/json');
+    ctx.response.body = { status: 'success', data: value };
   } catch (error) {
-    ctx.response.status = 500;
-    ctx.response.body = { error: error.message };
+    ctx.response.status = 400;
+    ctx.response.body = { error: 'Invalid JSON data' };
   }
 });
 
