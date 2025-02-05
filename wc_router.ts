@@ -48,6 +48,20 @@ router.post('/farbe', async (ctx) => {
   }
 });
 
+router.get('/', async (ctx) => {
+  await ctx.send({
+    root: Deno.cwd(),
+    index: 'wc_MOBS.html'
+  });
+});
+
+router.get('/wc_script.js', async (ctx) => {
+  await ctx.send({
+    root: Deno.cwd(),
+    path: 'wc_script.js'
+  });
+});
+
 // Apply routes and allowed methods
 app.use(router.routes());
 app.use(router.allowedMethods());
