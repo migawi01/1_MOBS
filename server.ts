@@ -90,43 +90,34 @@ router.post("/display_support", async (ctx: Context) => {
   }
 });
 
-// Color management route
-router.post("/farbe", async (ctx: Context) => {
+router.post('/farbe', async (ctx: Context) => {
   try {
     if (!ctx.request.hasBody) {
-      throw new Error("No body provided");
+      throw new Error('No body provided');
     }
 
     const body = await ctx.request.body();
-    const value = await body.value;
-
-    if (!value.color || !isValidColor(value.color)) {
-      throw new Error("Invalid color format. Expected an array of three numbers between 0 and 255.");
+    if (body.type !== 'json') {
+      throw new Error('Expected JSON content type');
     }
 
-    // Send color to Python backend
-    const response = await fetch("http://192.168.178.58:5000/farbe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(value),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to set color: ${response.statusText}`);
+    const value = await body.value;
+    
+    if (!value.color || !isValidColor(value.color)) {
+      throw new Error('Invalid color format. Expected an array of three numbers between 0 and 255.');
     }
 
     ctx.response.status = 200;
     ctx.response.body = {
       success: true,
-      data: value,
+      data: value.color
     };
+
   } catch (error) {
     ctx.response.status = 400;
     ctx.response.body = {
       success: false,
-      error: error.message,
+      error: error.message
     };
   }
 });
